@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Caput</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div style="display: flex; align-items: center; justify-content: center;">
+    <div class="form-container">
+        <h2>Cadastro de CAPUT</h2>
+        <form id="caputForm">
+            <div class="form-group">
+                <label for="matricula">Número da Matrícula</label>
+                <input type="number" id="matricula" name="matricula" required>
+            </div>
+
+            <div class="form-group">
+                <label for="proprietario">Nome do Proprietário</label>
+                <input type="text" id="proprietario" name="proprietario" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tamanho">Tamanho Total do Terreno (Hectáres)</label>
+                <input type="number" id="tamanho" name="tamanho" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Sexo do Proprietário</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="sexo" value="homem" id="homem" required>
+                        👨 Homem
+                    </label>
+                    <label>
+                        <input type="radio" name="sexo" value="mulher" id="mulher" required>
+                        👩 Mulher
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Salvar Dados</button>
+        </form>
+    </div>
+</div>
+    <div class="expandable-section">
+        <div class="expand-content">
+            <div class="radio-group" style="display: flex; flex-direction: column;">
+                <label class="radio-container">Dados Caput
+                    <input type="radio" name="option" value="1" checked>
+                    <span class="radio-mark"></span>
+                </label>
+                <label class="radio-container">Árvore de derivações
+                    <input type="radio" name="option" value="2">
+                    <span class="radio-mark"></span>
+                </label>
+                <label class="radio-container">Totalizadores
+                    <input type="radio" name="option" value="3">
+                    <span class="radio-mark"></span>
+                </label>
+            </div>
+        </div>
+        <button class="expand-btn">Expandir tipos de exibição <img class="expand-img" src="../img/expand-up.png"></button>
+    </div>
+    <script src="../scriptExpandle.js"></script>
+    <script src="scriptCaput.js"></script>
+</body>
+
+</html>

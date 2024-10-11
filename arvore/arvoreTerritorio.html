@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titularidade imóveis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="tree" id="tree-container">
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Informações Detalhadas </h2>
+            <div id="modal-info"></div>
+            
+            <h3>Adicionar Nova Derivação</h3>
+            <form id="newDerivationForm">
+                <div class="form-group">
+                    <label for="proprietario">Proprietário</label>
+                    <input type="text" id="proprietario" required>
+                </div>
+                <div class="form-group">
+                    <label for="tamanho">Tamanho (Hectáres)</label>
+                    <input type="number" id="tamanhoTerreno" required>
+                </div>
+                <div class="form-group">
+                    <label>Sexo do Proprietário</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="sexo" value="homem" required>
+                            👨 Homem
+                        </label>
+                        <label>
+                            <input type="radio" name="sexo" value="mulher" required>
+                            👩 Mulher
+                        </label>
+                    </div>
+                </div>
+                <div style="display: flex;width: 100%; justify-content: center;">
+                    <button type="submit" class="submit-btn" id="submit-btn-derivation">Adicionar Derivação</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="expandable-section">
+        <div class="expand-content">
+            <div class="radio-group" style="display: flex; flex-direction: column;">
+                <label class="radio-container">Dados Caput
+                    <input type="radio" name="option" value="1">
+                    <span class="radio-mark"></span>
+                </label>
+                <label class="radio-container">Árvore de derivações
+                    <input type="radio" name="option" value="2" checked>
+                    <span class="radio-mark"></span>
+                </label>
+                <label class="radio-container">Totalizadores
+                    <input type="radio" name="option" value="3">
+                    <span class="radio-mark"></span>
+                </label>
+            </div>
+        </div>
+        <button class="expand-btn">Expandir tipos de exibição <img class="expand-img" src="../img/expand-up.png"></button>
+    </div>
+    <script src="../scriptExpandle.js"></script>
+    <script src="scriptArvore.js"></script>
+</body>
+</html>

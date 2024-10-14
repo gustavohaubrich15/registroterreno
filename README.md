@@ -40,3 +40,6 @@ A aplicação é composta por **três páginas principais**, cada uma com um pap
      - Número total de subdivisões
      - Tamanho médio das subdivisões
      - Outras métricas relevantes para a análise do terreno
+
+![image](https://github.com/user-attachments/assets/ed684d93-6d1b-41a2-81e5-956782f2a9cc)
+

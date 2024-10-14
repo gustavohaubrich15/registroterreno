@@ -91,7 +91,8 @@ strong {
     overflow: hidden;
     transition: all 0.5s ease-in-out; 
     background-color: #f9f9f9;
-	position: absolute;
+	position: fixed;
+    margin-bottom: 5px;
     padding: 0 15px;
     border-radius: 5px;
 	width: 25%;

@@ -16,16 +16,18 @@ function gerarTotalizadores(proprietario, filtro) {
     const container = document.getElementById('totalizadores');
     const totalDerivacoes = calcularTotal(proprietario.derivacoes);
     const terrenoProprio = parseFloat(proprietario.tamanhoTerreno);
+    const porcentagemSobreCaput = (proprietario.tamanhoTerreno / data.tamanhoTerreno) * 100;
 
     const proprietarioDiv = document.createElement('div');
     proprietarioDiv.classList.add('proprietario');
 
     const infoProprietario = `
-        ${proprietario.numeroRegistro ? `<div class="info"><strong>R.</strong> ${proprietario.numeroRegistro}</div>` : '<strong>Caput</strong>'}
+        ${proprietario.numeroRegistro ? `<div class="info"><strong>R.</strong> ${proprietario.numeroRegistro}</div>` : '<strong>CAPUT</strong>'}
         <div class="info"><strong>Proprietário:</strong> ${proprietario.proprietario}</div>
         <div class="info"><strong>Tamanho do Terreno:</strong> ${terrenoProprio.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Hectáres</div>
         <div class="info"><strong>Total de Derivações:</strong> ${totalDerivacoes.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Hectáres</div>
-    `;
+        ${proprietario.numeroRegistro ? `<div class="info">📊 <strong>Percentual sobre caput:</strong> ${porcentagemSobreCaput.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div>` : ''}
+        `;
 
     proprietarioDiv.innerHTML = infoProprietario;
 

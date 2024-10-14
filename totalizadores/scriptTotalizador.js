@@ -33,7 +33,10 @@ function gerarTotalizadores(proprietario, filtro) {
 
     let filtroCondicao = false;
 
-    if (totalDerivacoes > terrenoProprio) {
+    if (filtro == 'atuais') {
+        filtroCondicao = proprietario.derivacoes.length === 0;
+    }
+    else if (totalDerivacoes > terrenoProprio) {
         proprietarioDiv.innerHTML += `<div class="info highlight-falta">⚠️ Falta de terreno: Derivações excedem em ${(totalDerivacoes - terrenoProprio).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Hectáres</div>`;
         filtroCondicao = filtro === 'falta' || filtro === 'todos';
     } else if (totalDerivacoes < terrenoProprio && totalDerivacoes > 0) {

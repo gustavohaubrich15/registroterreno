@@ -177,7 +177,8 @@ strong {
 
 .show {
     max-height: 50%;
-    bottom: 10%; 
+    bottom: 10%;
+    width: 25%; 
 }
 
 .expand-img{

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Totalizadores de Terreno</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Totalizadores de Terreno</h2>
+        <div class="filter-section">
+            <label for="filter">Filtrar por:</label>
+            <select id="filter">
+                <option value="todos">Todos</option>
+                <option value="sobras">Sobras de Terreno</option>
+                <option value="falta">Falta de Terreno</option>
+                <option value="perfeito">Terreno Perfeito</option>
+            </select>
+        </div>
+
+        <div class="totalizadores" id="totalizadores"></div>
+    </div>
+
+    <div class="expandable-section">
+        <div class="expand-content">
+            <div class="radio-group" style="display: flex; flex-direction: column;">
+                <label class="radio-container">Dados Caput 📝
+                    <input type="radio" name="option" value="1">
+                    <span class="radio-mark"></span>
+                </label>
+                <label class="radio-container">Árvore de derivações 🌳
+                    <input type="radio" name="option" value="2">
+                    <span class="radio-mark"></span>
+                </label>
+                <label class="radio-container">Totalizadores ➕
+                    <input type="radio" name="option" value="3" checked>
+                    <span class="radio-mark"></span>
+                </label>
+            </div>
+        </div>
+        <button class="expand-btn">Expandir tipos de exibição <img class="expand-img" src="../img/expand-up.svg"></button>
+    </div>
+    <script src="../scriptExpandle.js"></script>
+    <script src="scriptTotalizador.js"></script>
+</body>
+</html>

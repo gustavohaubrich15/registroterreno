@@ -25,11 +25,11 @@ async function handleRadioChange(event) {
     const selectedValue = event.target.value;
 
     if (selectedValue === '1') {
-        window.location.href = '../caput/caput.html'; // Caminho relativo para voltar um nível e acessar a subpasta caput
+        window.location.href = '../caput/caput.html';
     } else if (selectedValue === '2') {
-        window.location.href = '../arvore/arvoreTerritorio.html'; // Caminho relativo para voltar um nível e acessar a subpasta arvore
+        window.location.href = '../arvore/arvoreTerritorio.html';
     } else if (selectedValue === '3') {
-        window.location.href = '../totalizadores/totalizadores.html'; // Exemplo para outra subpasta
+        window.location.href = '../totalizadores/totalizadores.html';
     }
 }
 

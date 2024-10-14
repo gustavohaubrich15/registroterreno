@@ -113,7 +113,6 @@ function createTree(caputData) {
                 <ul>
                     <li id="${uniqueId}">
                         <a href="#">
-                            <div class="emoji">${caputData.sexo == "homem" ? "👨" : "👩"}</div>
                             <div> Proprietário - <strong>${caputData.proprietario}</strong></div>
                             <span>${caputData.tamanhoTerreno} Hectáres 📐</span>
                         </a>
@@ -163,16 +162,15 @@ document.getElementById('newDerivationForm').addEventListener('submit', function
         const nextUl = fatherTree.querySelector('ul');
         const proprietario = document.getElementById('proprietario').value;
         const tamanhoTerreno = document.getElementById('tamanhoTerreno').value;
-        const sexo = document.querySelector('input[name="sexo"]:checked').value;
+        const numeroRegistro = document.getElementById('numeroRegistro').value;
         const uniqueIdDerivation = generateUniqueId(proprietario);
         const level = calculateTreeLevel(idFatherTreeElement);
         const newLi = document.createElement('li');
         newLi.setAttribute('id', uniqueIdDerivation);
         newLi.innerHTML = `
             <a href="#">
-                <div class="emoji">${sexo === "homem" ? "👨" : "👩"}</div>
+                <div>R.${numeroRegistro}</div>
                 <div> Proprietário - <strong>${proprietario}</strong></div>
-                <div>Derivação de ${level}</div>
                 <span>${tamanhoTerreno} Hectáres 📐</span>
             </a>
             <ul></ul>
@@ -187,14 +185,14 @@ document.getElementById('newDerivationForm').addEventListener('submit', function
             showModal({
                 proprietario,
                 tamanhoTerreno,
-                sexo
+                numeroRegistro
             },event.currentTarget.id, true);
         });
 
         addDerivationToTree(idFatherTreeElement, {
             proprietario,
             tamanhoTerreno,
-            sexo,
+            numeroRegistro,
             uniqueId: uniqueIdDerivation,
             derivacoes: []
         });
@@ -213,9 +211,9 @@ function showModal(data,uniqueId, derivacao = false) {
 
     modalInfo.innerHTML = `
         ${derivacao ? '' : `<p><strong>Número da Matrícula:</strong> ${data.matricula}</p>`}
+        ${derivacao ? `<p><strong>R.</strong> ${data.numeroRegistro}</p>` : ''}
         <p><strong>Proprietário:</strong> ${data.proprietario}</p>
         <p><strong>Tamanho do Terreno:</strong> ${data.tamanhoTerreno} Hectáres</p>
-        <p><strong>Sexo:</strong> ${data.sexo === 'homem' ? '👨 Homem' : '👩 Mulher'}</p>
         <button class="delete-btn" data-id="${uniqueId}">Excluir Registro</button>
     `;
 

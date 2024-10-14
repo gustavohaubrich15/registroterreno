@@ -5,12 +5,6 @@ function loadCaputData() {
         document.getElementById('matricula').value = caputData.matricula || '';
         document.getElementById('proprietario').value = caputData.proprietario || '';
         document.getElementById('tamanho').value = caputData.tamanhoTerreno || '';
-        
-        if (caputData.sexo == 'homem') {
-            document.getElementById('homem').checked = true;
-        } else if (caputData.sexo == 'mulher') {
-            document.getElementById('mulher').checked = true;
-        }
     }
 }
 
@@ -25,13 +19,11 @@ document.getElementById('caputForm').addEventListener('submit', function(event) 
     const matricula = document.getElementById('matricula').value;
     const proprietario = document.getElementById('proprietario').value;
     const tamanhoTerreno = document.getElementById('tamanho').value;
-    const sexo = document.querySelector('input[name="sexo"]:checked').value;
 
     const caputData = {
         matricula,
         proprietario,
         tamanhoTerreno,
-        sexo,
         derivacoes: []
     };
 

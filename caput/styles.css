@@ -129,12 +129,12 @@ strong {
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
-    position: absolute; 
+    position: fixed; 
     right: 2%; 
     bottom: 2%; 
     transition: background-color 0.3s ease; 
     z-index: 1000;
-	width: 30%;
+	width: 25%;
 	display: flex;
 	justify-content: space-evenly;
 }

@@ -12,7 +12,18 @@ document.querySelector('.expand-btn').addEventListener('click', function() {
 
 
 
-function handleRadioChange(event) {
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function aguardar() {
+    console.log("Aguardando 1 segundo...");
+    await wait(500);
+}
+
+
+async function handleRadioChange(event) {
+    await aguardar()
     const selectedValue = event.target.value;
 
     if (selectedValue === '1') {

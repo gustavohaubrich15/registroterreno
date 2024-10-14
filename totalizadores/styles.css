@@ -203,3 +203,19 @@ strong {
 .filter-section select:focus {
     border-color: #28a745;
 }
+
+.copy-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.copy-btn:hover {
+    background-color: #218838;
+}

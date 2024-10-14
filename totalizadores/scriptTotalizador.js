@@ -71,3 +71,27 @@ document.getElementById('filter').addEventListener('change', function() {
     container.innerHTML = ''; 
     gerarTotalizadores(data, filtroSelecionado);
 });
+
+
+document.getElementById('copyButton').addEventListener('click', function() {
+    let listaTotalizadores = '';
+    const totalizadores = document.querySelectorAll('.proprietario');
+    
+    totalizadores.forEach((totalizador, index) => {
+        const numeroRegistro = totalizador.querySelector('.info:nth-child(1) strong')?.nextSibling?.textContent?.trim();
+        const nome = totalizador.querySelector('.info:nth-child(2) strong').nextSibling.textContent.trim();
+        const tamanho = totalizador.querySelector('.info:nth-child(3) strong').nextSibling.textContent.trim();
+        const percentual = totalizador.querySelector('.info:nth-child(5) strong') ? totalizador.querySelector('.info:nth-child(5) strong').nextSibling.textContent.trim() : '';
+        listaTotalizadores += `\n------------------------\n${numeroRegistro ?`R.${numeroRegistro}\n` : 'CAPUT\n'} Proprietário: ${nome} \n Tamanho: ${tamanho} \n Percentual: ${percentual} \n `;
+  
+    });
+    
+    navigator.clipboard.writeText(listaTotalizadores)
+        .then(() => {
+            alert('Lista copiada para com sucesso!');
+        })
+        .catch(err => {
+            alert('Erro ao copiar a lista.');
+            console.error('Erro:', err);
+        });
+});

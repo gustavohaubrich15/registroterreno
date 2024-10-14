@@ -4,13 +4,11 @@ document.querySelector('.expand-btn').addEventListener('click', function() {
     const img = document.querySelector('.expand-img');
     content.classList.toggle('show');
     if (content.classList.contains('show')) {
-        button.innerHTML = 'Minimizar tipos de exibição <img class="expand-img" src="../img/expand-down.png" alt="Minimizar">';
+        button.innerHTML = 'Minimizar tipos de exibição <img class="expand-img" src="../img/expand-down.svg" alt="Minimizar">';
     } else {
-        button.innerHTML = 'Expandir tipos de exibição <img class="expand-img" src="../img/expand-up.png" alt="Expandir">';
+        button.innerHTML = 'Expandir tipos de exibição <img class="expand-img" src="../img/expand-up.svg" alt="Expandir">';
     }
 });
-
-
 
 function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));

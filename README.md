@@ -12,11 +12,10 @@ A aplicação é composta por **três páginas principais**, cada uma com um pap
    - **Campos do cadastro**:
      - Nome do CAPUT
      - Área total do terreno
-     - Localização (cidade, estado, etc.)
-     - Proprietário principal
-     - Documentação
+     - Terreno
 
-![image](https://github.com/user-attachments/assets/8305f99a-af99-4cc7-aaf2-b69160661f6a)
+![image](https://github.com/user-attachments/assets/bea42ec8-1257-425b-8470-41ff4401afc2)
+
 
 [Acesse aqui o cadastro do caput](https://registroterreno.vercel.app/caput/caput.html)
 
@@ -37,9 +36,8 @@ A aplicação é composta por **três páginas principais**, cada uma com um pap
 
    - **Indicadores disponíveis**:
      - Área total ocupada
-     - Número total de subdivisões
-     - Tamanho médio das subdivisões
-     - Outras métricas relevantes para a análise do terreno
+     - Percentual sobre caput
+     - Informações adicionais
 
 ![image](https://github.com/user-attachments/assets/ed684d93-6d1b-41a2-81e5-956782f2a9cc)
 

@@ -88,10 +88,34 @@ document.getElementById('copyButton').addEventListener('click', function() {
     
     navigator.clipboard.writeText(listaTotalizadores)
         .then(() => {
-            alert('Lista copiada para com sucesso!');
+            Toastify({
+                text: `Conteúdo copiado`,
+                duration: 1500,
+                newWindow: true,
+                close: true,
+                gravity: "top", 
+                position: "right", 
+                stopOnFocus: true,
+                style: {
+                  background: "#28a745",
+                },
+                onClick: function(){} 
+              }).showToast();
         })
         .catch(err => {
-            alert('Erro ao copiar a lista.');
+            Toastify({
+                text: `Erro ao copiar`,
+                duration: 1500,
+                newWindow: true,
+                close: true,
+                gravity: "top", 
+                position: "right", 
+                stopOnFocus: true,
+                style: {
+                  background: "red",
+                },
+                onClick: function(){} 
+              }).showToast();
             console.error('Erro:', err);
         });
 });

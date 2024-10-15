@@ -14,8 +14,6 @@ window.onload = function() {
 
 document.getElementById('caputForm').addEventListener('submit', function(event) {
     event.preventDefault(); 
-
-    // Obter os valores dos campos do formulário
     const matricula = document.getElementById('matricula').value;
     const proprietario = document.getElementById('proprietario').value;
     const tamanhoTerreno = document.getElementById('tamanho').value;
@@ -29,5 +27,17 @@ document.getElementById('caputForm').addEventListener('submit', function(event) 
 
     sessionStorage.setItem('caput', JSON.stringify(caputData));
     sessionStorage.removeItem('treeHTML', JSON.stringify(caputData));
-    alert('Dados salvos com sucesso do caput!');
+    Toastify({
+        text: "Dados salvos com sucesso!!   ",
+        duration: 1000,
+        newWindow: true,
+        close: true,
+        gravity: "top", 
+        position: "right", 
+        stopOnFocus: true,
+        style: {
+          background: "#28a745",
+        },
+        onClick: function(){} 
+      }).showToast();
 })

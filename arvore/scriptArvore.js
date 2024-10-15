@@ -164,7 +164,6 @@ document.getElementById('newDerivationForm').addEventListener('submit', function
         const tamanhoTerreno = document.getElementById('tamanhoTerreno').value;
         const numeroRegistro = document.getElementById('numeroRegistro').value;
         const uniqueIdDerivation = generateUniqueId(proprietario);
-        const level = calculateTreeLevel(idFatherTreeElement);
         const newLi = document.createElement('li');
         newLi.setAttribute('id', uniqueIdDerivation);
         newLi.innerHTML = `
@@ -197,6 +196,19 @@ document.getElementById('newDerivationForm').addEventListener('submit', function
             derivacoes: []
         });
 
+        Toastify({
+            text: `Nova derivação criada com registro R.${numeroRegistro}`,
+            duration: 1500,
+            newWindow: true,
+            close: true,
+            gravity: "top", 
+            position: "right", 
+            stopOnFocus: true,
+            style: {
+              background: "#28a745",
+            },
+            onClick: function(){} 
+          }).showToast();
     }
 
     const modal = document.getElementById('myModal');
@@ -204,8 +216,6 @@ document.getElementById('newDerivationForm').addEventListener('submit', function
 });
 
 function showModal(data,uniqueId, derivacao = false) {
-    
-    console.log(caputObject)
     const modal = document.getElementById('myModal');
     const modalInfo = document.getElementById('modal-info');
 

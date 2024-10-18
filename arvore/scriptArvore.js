@@ -163,6 +163,7 @@ document.getElementById('newDerivationForm').addEventListener('submit', function
         const proprietario = document.getElementById('proprietario').value;
         const tamanhoTerreno = document.getElementById('tamanhoTerreno').value;
         const numeroRegistro = document.getElementById('numeroRegistro').value;
+        const desmembramento = document.getElementById('desmembramento').checked;
         const uniqueIdDerivation = generateUniqueId(proprietario);
         const newLi = document.createElement('li');
         newLi.setAttribute('id', uniqueIdDerivation);
@@ -170,6 +171,7 @@ document.getElementById('newDerivationForm').addEventListener('submit', function
             <a href="#">
                 <div>R.${numeroRegistro}</div>
                 <div> Proprietário - <strong>${proprietario}</strong></div>
+                ${desmembramento ? `<div><strong>Desmembramento</strong></div>`: ''}
                 <span>${tamanhoTerreno} Hectáres 📐</span>
             </a>
             <ul></ul>
@@ -184,7 +186,8 @@ document.getElementById('newDerivationForm').addEventListener('submit', function
             showModal({
                 proprietario,
                 tamanhoTerreno,
-                numeroRegistro
+                numeroRegistro,
+                desmembramento
             },event.currentTarget.id, true);
         });
 
@@ -192,6 +195,7 @@ document.getElementById('newDerivationForm').addEventListener('submit', function
             proprietario,
             tamanhoTerreno,
             numeroRegistro,
+            desmembramento,
             uniqueId: uniqueIdDerivation,
             derivacoes: []
         });
@@ -223,6 +227,7 @@ function showModal(data,uniqueId, derivacao = false) {
         ${derivacao ? '' : `<p><strong>Número da Matrícula:</strong> ${data.matricula}</p>`}
         ${derivacao ? `<p><strong>R.</strong> ${data.numeroRegistro}</p>` : ''}
         <p><strong>Proprietário:</strong> ${data.proprietario}</p>
+        ${data.desmembramento ? `<div><strong>Desmembramento</strong></div>`: ''}
         <p><strong>Tamanho do Terreno:</strong> ${data.tamanhoTerreno} Hectáres</p>
         <button class="delete-btn" data-id="${uniqueId}">Excluir Registro</button>
     `;

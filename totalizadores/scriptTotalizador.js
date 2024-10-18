@@ -1,5 +1,6 @@
 const storedData = sessionStorage.getItem('caput');
 const data = storedData ? JSON.parse(storedData) : null;
+let tamanhoTotalTerreno = 0
 
 function calcularTotal(derivacoes) {
     let totalDerivacoes = 0;
@@ -12,11 +13,37 @@ function calcularTotal(derivacoes) {
     return totalDerivacoes;
 }
 
+function obterTotalDesmembramentos(derivacoes) {
+    let totalDesmembramentos = 0;
+    derivacoes.forEach(item => {
+        if (item.desmembramento) {
+            totalDesmembramentos += parseFloat(item.tamanhoTerreno);
+        }
+        if (item.derivacoes && item.derivacoes.length > 0) {
+            totalDesmembramentos += obterTotalDesmembramentos(item.derivacoes); // Verifica derivações aninhadas
+        }
+    });
+    return totalDesmembramentos;
+}
+
+if(data){
+    let totalDesmembramentos = 0;
+    data.derivacoes.forEach(item => {
+        if (item.desmembramento) {
+            totalDesmembramentos += parseFloat(item.tamanhoTerreno);
+        }
+        if (item.derivacoes && item.derivacoes.length > 0) {
+            totalDesmembramentos += obterTotalDesmembramentos(item.derivacoes); 
+        }
+    });
+    tamanhoTotalTerreno = parseFloat(data.tamanhoTerreno) - totalDesmembramentos
+}
+
 function gerarTotalizadores(proprietario, filtro) {
     const container = document.getElementById('totalizadores');
     const totalDerivacoes = calcularTotal(proprietario.derivacoes);
     const terrenoProprio = parseFloat(proprietario.tamanhoTerreno);
-    const porcentagemSobreCaput = (proprietario.tamanhoTerreno / data.tamanhoTerreno) * 100;
+    const porcentagemSobreCaput = (proprietario.tamanhoTerreno / tamanhoTotalTerreno) * 100;
 
     const proprietarioDiv = document.createElement('div');
     proprietarioDiv.classList.add('proprietario');
@@ -33,7 +60,7 @@ function gerarTotalizadores(proprietario, filtro) {
 
     let filtroCondicao = false;
 
-    if (filtro == 'atuais') {
+    if (filtro == 'atuais' && !proprietario.desmembramento) {
         filtroCondicao = proprietario.derivacoes.length === 0;
     }
     else if (totalDerivacoes > terrenoProprio) {

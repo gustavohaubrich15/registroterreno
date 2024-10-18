@@ -363,3 +363,10 @@ input[type="number"] {
     outline: none;
     flex: 1;
 }
+
+input[type="checkbox"]:checked + label:before {
+	content: "✔";
+	color: white;
+	text-align: center;
+	line-height: 20px;
+}
